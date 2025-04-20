@@ -28,6 +28,7 @@ user_persona_input = input("enter persona :").strip().lower()
 
 #persona = personas.get(user_persona_input)
 
+
 chat_history.append({
     "role": "system",
     "content": personas[user_persona_input]
@@ -37,6 +38,12 @@ chat_history.append({
 while True:
 
     user_input = input("Enter Your Prompt:")
+
+    if user_input == 'Clear':
+        chat_history=[]
+        chat_history.append({"role": "system","content": personas[user_persona_input]})
+        print("chat history cleared")
+        continue
 
     chat_history.append({
       "role": "user",
